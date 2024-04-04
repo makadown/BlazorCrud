@@ -61,6 +61,8 @@
 
 	private async Task BorrarLibro(int libroId)
 	{
-		
+		await Repositorio.EliminarLibro(libroId);
+		// recargar los libros
+		listaLibros = await Repositorio.GetLibros();
 	}
 }

@@ -45,7 +45,7 @@ namespace BlazorCrud.Repositorio
         public async Task<Libro> GetLibroById(int libroId)
         {
             var libroDesdeBD = await _context.Libro.FindAsync(libroId);
-            return libroDesdeBD ?? new Libro();
+            return libroDesdeBD ?? null;
         }
 
         public async Task<List<Libro>> GetLibros()
