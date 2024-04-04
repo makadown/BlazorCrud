@@ -5,3 +5,5 @@
 /.vs
 /bin
 /obj
+/BlazorCrud/obj/Debug/net7.0/BlazorCrud.AssemblyInfo.cs
+/BlazorCrud/obj/Debug/net7.0/BlazorCrud.AssemblyInfoInputs.cache
