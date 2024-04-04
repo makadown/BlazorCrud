@@ -1,13 +1,22 @@
 using BlazorCrud.Data;
+using BlazorCrud.Repositorio;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configurar conexion a SQL Local DB
+builder.Services.AddDbContext<ApplicationDbContext>(options => 
+        options.UseSqlServer(builder.Configuration.GetConnectionString("ConexionSQLLocalDB"))
+);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
+
+// Inyectar Repo
+builder.Services.AddScoped<IRepositorio, Repositorio>();
 
 var app = builder.Build();
 
